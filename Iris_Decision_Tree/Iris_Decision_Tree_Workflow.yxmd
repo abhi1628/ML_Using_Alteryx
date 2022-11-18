@@ -1,0 +1,762 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">D:\ML Data\iris_training_data.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>iris_training_data.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Id" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="SepalLengthCm" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="SepalWidthCm" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="PetalLengthCm" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="PetalWidthCm" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Species" size="255" source="File: D:\ML Data\iris_training_data.xlsx|||`Sheet1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="138" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Id" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="Modeling">
+        <Position x="222" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AssistedModelingDbFilepath>C:\Users\Global\AppData\Local\Temp\Engine_15852_76a512cf6e0757449dda596c894e53b0_\Engine_2660_be96e7ddceae402cba1a72f13b24007e_.db</AssistedModelingDbFilepath>
+          <DatabaseMigrationFailure>false</DatabaseMigrationFailure>
+          <MemoryThresholdExceeded>false</MemoryThresholdExceeded>
+          <DesignerVersion />
+          <RawDataDbFilepath>C:\Users\Global\AppData\Local\Temp\Engine_11928_a2e73080ec665641bd0ebd20dc0ac575_\Engine_2660_9955dbabcecc48baae0586d74dcd9b0c_.db</RawDataDbFilepath>
+          <TargetVariable>Species</TargetVariable>
+          <LastNumRowsReceived>120</LastNumRowsReceived>
+          <RadioSelection>expert</RadioSelection>
+          <SerializedData />
+          <PythonPath>C:\Users\Global\AppData\Local\Alteryx\bin\Miniconda3\envs\IntelligenceSuite_venv\python.exe</PythonPath>
+          <PythonArgs>-m ayx_assisted_modeling runserver --threads=5 --db-filepath="C:\Users\Global\AppData\Local\Temp\Engine_15852_76a512cf6e0757449dda596c894e53b0_\Engine_2660_be96e7ddceae402cba1a72f13b24007e_.db" --raw-data-filepath="C:\Users\Global\AppData\Local\Temp\Engine_11928_a2e73080ec665641bd0ebd20dc0ac575_\Engine_2660_9955dbabcecc48baae0586d74dcd9b0c_.db" --log-filepath="C:\Users\Global\AppData\Local\Alteryx\Log\AssistedModelingAPILog_toolID26.txt" --settings="PROD" --port=63549 --session-id="3ba6fed-6c5f-ba0-ccd0-e4704dcd0485" --tool-id="26"</PythonArgs>
+          <Port>63549</Port>
+          <schemaID>Tools.Modeling.2</schemaID>
+          <AssistedModelingMetadata />
+          <InputMetadataChanged>false</InputMetadataChanged>
+          <sessionId>3ba6fed-6c5f-ba0-ccd0-e4704dcd0485</sessionId>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Target = Species</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Modeling\main.py" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="Transformation">
+        <Position x="342" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <transformer_selection>datatyping</transformer_selection>
+          <transformer_configs>
+            <transformer_name>column_selection</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>na_handling</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <options>impute_value</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_value</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <options>impute_value</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_value</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <options>impute_value</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_value</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <options>impute_value</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_value</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>datatyping</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>one_hot_encoding</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+                <available>true</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+                <available>true</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+                <available>true</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+                <available>true</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>categorical</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <schemaID>Tools.Transformation.2</schemaID>
+          <DesignerVersion>2022.1.1.40869</DesignerVersion>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Set Data Types</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Transformation\main.py" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="Transformation">
+        <Position x="450" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <transformer_selection>column_selection</transformer_selection>
+          <transformer_configs>
+            <transformer_name>column_selection</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <selected>true</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>na_handling</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <options>impute_median</options>
+                <options>impute_mean</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_median</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <options>impute_median</options>
+                <options>impute_mean</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_median</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <options>impute_median</options>
+                <options>impute_mean</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_median</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <options>impute_median</options>
+                <options>impute_mean</options>
+                <options>impute_mode</options>
+                <options>drop_column</options>
+                <selectedOperation>impute_median</selectedOperation>
+                <selected>false</selected>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>datatyping</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <options>numeric</options>
+                <options>categorical</options>
+                <options>boolean</options>
+                <options>id</options>
+                <selectedOperation>numeric</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <transformer_configs>
+            <transformer_name>one_hot_encoding</transformer_name>
+            <column_configs>
+              <column_name>SepalLengthCm</column_name>
+              <settings>
+                <selected>false</selected>
+                <available>false</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>SepalWidthCm</column_name>
+              <settings>
+                <selected>false</selected>
+                <available>false</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalLengthCm</column_name>
+              <settings>
+                <selected>false</selected>
+                <available>false</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+            <column_configs>
+              <column_name>PetalWidthCm</column_name>
+              <settings>
+                <selected>false</selected>
+                <available>false</available>
+                <options>ignore</options>
+                <options>warn</options>
+                <options>error</options>
+                <selectedOperation>warn</selectedOperation>
+              </settings>
+              <type_during_last_config>numeric</type_during_last_config>
+            </column_configs>
+          </transformer_configs>
+          <schemaID>Tools.Transformation.2</schemaID>
+          <DesignerVersion>2022.1.1.40869</DesignerVersion>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Select Features</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Transformation\main.py" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="Classification">
+        <Position x="558" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <algorithm_selection>decision_tree</algorithm_selection>
+          <algorithm_configs>
+            <algorithm_name>logistic_regression</algorithm_name>
+            <algorithm_config>
+              <multi_class>auto</multi_class>
+              <solver>liblinear</solver>
+              <penalty>l2</penalty>
+              <max_iter>100</max_iter>
+              <C>1</C>
+              <tol>0.0001</tol>
+              <fit_intercept>true</fit_intercept>
+              <intercept_scaling>1</intercept_scaling>
+              <random_state_none>false</random_state_none>
+              <random_state>10</random_state>
+              <verbose>1</verbose>
+              <dual>false</dual>
+              <class_weight>none</class_weight>
+            </algorithm_config>
+          </algorithm_configs>
+          <algorithm_configs>
+            <algorithm_name>random_forest</algorithm_name>
+            <algorithm_config>
+              <n_estimators>100</n_estimators>
+              <criterion>gini</criterion>
+              <max_depth_none>false</max_depth_none>
+              <max_depth>10</max_depth>
+              <min_samples_split_int>true</min_samples_split_int>
+              <min_samples_split_int_val>2</min_samples_split_int_val>
+              <min_samples_split_pct_val>0.01</min_samples_split_pct_val>
+              <max_features_type>auto</max_features_type>
+              <max_features_input>1</max_features_input>
+              <min_impurity_decrease>0</min_impurity_decrease>
+              <min_weight_fraction_leaf>0</min_weight_fraction_leaf>
+              <random_state_none>false</random_state_none>
+              <random_state>10</random_state>
+              <bootstrap>true</bootstrap>
+              <class_weight>none</class_weight>
+            </algorithm_config>
+          </algorithm_configs>
+          <algorithm_configs>
+            <algorithm_name>decision_tree</algorithm_name>
+            <algorithm_config>
+              <criterion>gini</criterion>
+              <max_depth_none>true</max_depth_none>
+              <max_depth>10</max_depth>
+              <min_samples_split_int>true</min_samples_split_int>
+              <min_samples_split_int_val>2</min_samples_split_int_val>
+              <min_samples_split_pct_val>0.01</min_samples_split_pct_val>
+              <max_features_type>auto</max_features_type>
+              <max_features_input>1</max_features_input>
+              <min_impurity_decrease>0</min_impurity_decrease>
+              <min_weight_fraction_leaf>0</min_weight_fraction_leaf>
+              <random_state_none>false</random_state_none>
+              <random_state>10</random_state>
+              <max_leaf_nodes_none>true</max_leaf_nodes_none>
+              <max_leaf_nodes>10</max_leaf_nodes>
+              <class_weight>none</class_weight>
+              <splitter>best</splitter>
+              <presort>false</presort>
+            </algorithm_config>
+          </algorithm_configs>
+          <algorithm_configs>
+            <algorithm_name>xgb_classifier</algorithm_name>
+            <algorithm_config>
+              <max_depth>3</max_depth>
+              <learning_rate>0.1</learning_rate>
+              <n_estimators>100</n_estimators>
+              <gamma>0</gamma>
+              <min_child_weight>1</min_child_weight>
+              <subsample>1</subsample>
+              <colsample_bytree>1</colsample_bytree>
+              <colsample_bylevel>1</colsample_bylevel>
+              <colsample_bynode>1</colsample_bynode>
+              <random_state>10</random_state>
+            </algorithm_config>
+          </algorithm_configs>
+          <schemaID>Tools.Classification.2</schemaID>
+          <DesignerVersion>2022.1.1.40869</DesignerVersion>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Decision Tree</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Classification\main.py" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="Fit">
+        <Position x="654" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <modelID>a34cd1-b80a-14-a1f1-7bc4f127c28</modelID>
+          <fitToolID>346b166-aac8-a3b3-7f32-304d50d82430</fitToolID>
+          <schemaID>Tools.Fit.2</schemaID>
+          <DesignerVersion>2022.1.1.40869</DesignerVersion>
+          <classes_>Iris-setosa</classes_>
+          <classes_>Iris-versicolor</classes_>
+          <classes_>Iris-virginica</classes_>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Train Model</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Fit\main.py" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="Predict">
+        <Position x="750" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <schemaID>Tools.Predict.2</schemaID>
+          <DesignerVersion />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Predict Values</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="Predict\main.py" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="642" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>iris_testing_data.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Id" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="SepalLengthCm" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="SepalWidthCm" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="PetalLengthCm" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="PetalWidthCm" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Species" size="255" source="File: D:\ML Data\iris_testing_data.xlsx|||`Sheet1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="846" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\Global\AppData\Local\Temp\Engine_11928_a2e73080ec665641bd0ebd20dc0ac575_\Engine_11928_50418cb8f3ad6845bc6bcb9cafefb7dc~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Data" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Model" />
+      <Destination ToolID="27" Connection="Model" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Model" />
+      <Destination ToolID="28" Connection="Model" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Model" />
+      <Destination ToolID="29" Connection="Model" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Model" />
+      <Destination ToolID="30" Connection="Model" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Model" />
+      <Destination ToolID="31" Connection="Model" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="31" Connection="Data" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="PredictedData" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Iris_Decision_Tree_Workflow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5e332885-68a9-4e06-8ebb-50c561615772" />
+      <Telemetry>
+        <PreviousWorkflowId value="95b9b329-d88b-4a93-a530-6a6896efd984" />
+        <OriginWorkflowId value="95b9b329-d88b-4a93-a530-6a6896efd984" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
